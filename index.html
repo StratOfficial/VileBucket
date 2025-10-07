@@ -21,7 +21,7 @@
     async function initVersionCheck() {
       currentVersion = await fetchCurrentVersion();
 
-      document.getElementById("version").innerHTML = "<center><h3 style="color: green;">" + currentVersion + "</center></h3>";
+      document.getElementById("version").innerHTML = "<center><h3 style="color: green;">" + currentVersion + "</h3></center>";
     
       setInterval(async () => {
         const latest = await fetchCurrentVersion();
