@@ -7,25 +7,26 @@
     <center><h1>VileBucket</h1></center>
     <center><h1>Testing again</h1></center>
     <script>
-      let currentVersion;
-      
-      async function checkVersionOnLoad() {
-        const res = await fetch('https://raw.githubusercontent.com/youruser/yourrepo/main/version.json?t=' + Date.now());
-        const data = await res.json();
-        currentVersion = data.latest; // set currentVersion to the latest on page load
-      }
-      
-      checkVersionOnLoad();
-      
-      // Periodically check for updates
+    let currentVersion;
+    
+    async function fetchCurrentVersion() {
+      const res = await fetch('https://raw.githubusercontent.com/StratOfficial/VileBucket/main/version.json?t=' + Date.now());
+      const data = await res.json();
+      return data.latest;
+    }
+    
+    async function initVersionCheck() {
+      currentVersion = await fetchCurrentVersion();
+    
       setInterval(async () => {
-        const res = await fetch('https://raw.githubusercontent.com/youruser/yourrepo/main/version.json?t=' + Date.now());
-        const data = await res.json();
-        
-        if(data.latest !== currentVersion){
-          location.reload(); // reload page if new version exists
+        const latest = await fetchCurrentVersion();
+        if (latest !== currentVersion) {
+          location.reload(); // new version detected → reload page
         }
-      }, 30000);
-  </script>
+      }, 30000); // check every 30 seconds
+    }
+    
+    initVersionCheck();
+    </script>
   </body>
 </html>
