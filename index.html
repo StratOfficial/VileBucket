@@ -4,6 +4,7 @@
     <title>VileBucket</title>
   </head>
   <body style="background-color: black;>
+    <div id="version"></div>
     <center><h1 style="color: white;">VileBucket</h1></center>
     <center><h1 style="color: white;">Testing again uhh again</h1></center>
     <center><h2 style="color: white;">and again</h2></center>
@@ -19,6 +20,8 @@
     
     async function initVersionCheck() {
       currentVersion = await fetchCurrentVersion();
+
+      document.getElementById("version").innerHTML = "<center><h3>" + currentVersion + "</center></h3>";
     
       setInterval(async () => {
         const latest = await fetchCurrentVersion();
