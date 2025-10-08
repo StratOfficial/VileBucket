@@ -1,4 +1,5 @@
 @font-face {
   font-family: "bloodie-curse";
-  src: url("bloodie-curse.regular.ttf")
+  src: url("bloodie-curse.regular.ttf");
+  font-weight: normal;
 }
