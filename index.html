@@ -15,31 +15,31 @@
   </body>
   <footer>
   <script>
-    let currentVersion;
+  let currentVersion;
     
-    async function fetchCurrentVersion() {
-      const res = await fetch('https://raw.githubusercontent.com/StratOfficial/VileBucket/main/version.json?t=' + Date.now());
-      const data = await res.json();
-      return data.latest;
-    }
-    
-    async function initVersionCheck() {
-      currentVersion = await fetchCurrentVersion();
+  async function fetchCurrentVersion() {
+    const res = await fetch('https://raw.githubusercontent.com/StratOfficial/VileBucket/main/version.json?t=' + Date.now());
+    const data = await res.json();
+    return data.latest;
+  }
+  
+  async function initVersionCheck() {
+    currentVersion = await fetchCurrentVersion();
 
-      const versionDiv = document.getElementById("version");
-      if (versionDiv) {
-        versionDiv.innerHTML = '<center><h3 style="color: green; position: absolute; bottom: 0; left: 0; width: 100%; text-align: left;">' + currentVersion + '</h3></center>';
-      }
-    
-      setInterval(async () => {
-        const latest = await fetchCurrentVersion();
-        if (latest !== currentVersion) {
-          location.reload(); // new version detected → reload page
-        }
-      }, 10000); // check every 10 seconds
+    const versionDiv = document.getElementById("version");
+    if (versionDiv) {
+      versionDiv.innerHTML = '<center><h3 style="color: green; position: absolute; bottom: 0; left: 0; width: 100%; text-align: left;">' + currentVersion + '</h3></center>';
     }
-    
-    initVersionCheck();
+  
+    setInterval(async () => {
+      const latest = await fetchCurrentVersion();
+      if (latest !== currentVersion) {
+        location.reload(); // new version detected → reload page
+      }
+    }, 10000); // check every 10 seconds
+  }
+  
+  initVersionCheck();
   </script>
   </footer>
 </html>
