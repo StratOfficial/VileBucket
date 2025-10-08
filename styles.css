@@ -4,7 +4,7 @@
 }
 
 .vile-title {
-  animation: fadein 1s ease;
+  animation: fadein 2s ease;
 }
 @keyframes fadein {
   from { opacity: 0; }
