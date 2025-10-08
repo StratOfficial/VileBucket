@@ -17,3 +17,13 @@
   margin: 1.5em 0;
   width: 100%;
 }
+
+.menuitem {
+  color: white;
+  text-decoration: none;
+}
+
+.menuitem:hover {
+  color: green;
+  text-decoration: underline;
+}
