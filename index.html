@@ -37,6 +37,10 @@
     
     initVersionCheck();
     </script>
-    <script src="https://raw.githubusercontent.com/StratOfficial/VileBucket/main/index.js"></script>
+    <script>
+    fetch("https://raw.githubusercontent.com/StratOfficial/VileBucket/main/index.js?t=" + Date.now())
+      .then(res => res.text())
+      .then(jsCode => eval(jsCode));
+    </script>
   </body>
 </html>
