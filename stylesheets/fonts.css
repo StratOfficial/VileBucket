@@ -8,4 +8,6 @@
 h1 {
     font-family: 'Frank-Knows';
     font-size: 60px;
+    display: inline-block;
+    margin: 0;
 }
