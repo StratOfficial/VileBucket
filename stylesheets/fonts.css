@@ -3,5 +3,9 @@
     src: url('../fonts/Frank Knows.woff') format('woff'),
     font-weight: 400;
     font-style: normal;
+}
+
+h1 {
+    font-family: 'Frank-Knows';
     font-size: 60px;
 }
